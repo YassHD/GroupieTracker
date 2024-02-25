@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie tracker</title>
+    <link rel="stylesheet" href="/static/info.css">
+</head>
+
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+
+    <a href="index.html">
+        <h1>Groupie Tracker</h1>
+    </a>
+    <div class="w-fit m-auto text-center sm:text-left">
+        <div class="tableau">
+            <div class="row">
+                <div class="column">
+                <h3>Membre(s) :</h3>
+                {{ range $membre := .Lmembres}}
+                <ul>
+                    <li> {{ $membre }} </li>
+                </ul>
+                {{end}}
+
+            </div>
+            <div class="column">
+                <img src="{{ .artistimage }}">
+            </div>
+            <div class="column" id="oui">
+                    <h3>Dernier concert : <br> <br> {{ .datelastconcert }} à {{ .locationlastconcert }} </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text">
+        <h2> {{ .artistNom }}</h2>
+        <h4>Date d'apparition : {{ .artistcreation }}</h4>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+
+    <h1>Groupie Tracker</h1>
+    <div>
+        <img id="logo" src="./static/gt.png">
+        <input id="searchbar" type="text" placeholder="Rechercher" onkeyup="search_artists()">
+    </div>
+    <button id="A-Z" onclick="sortListDir()">A-Z</button>
+    <div class="container">
+        <div class="groupie-list" id="id01">
+            {{ range $index, $artist := .Artist}}
+            <div class="groupie" data-name="{{ $artist.Nom }}" onclick="selectArtist(event)">
+                <a>
+                    <img src={{$artist.Image}}>
+                    <h2>{{$artist.Nom}}</h2>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    <script type="text/javascript" src="static/script.js"></script>
+</body>
+
+</html>
